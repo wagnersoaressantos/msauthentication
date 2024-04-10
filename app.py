@@ -1,6 +1,6 @@
 from flask import Flask
 from modules.msAuthentication.auth import auth_blueprint
-from modules.usuario.controller import users_controller
+from modules.users.controller import users_controller
 from service.connect import Connect
 
 app = Flask(__name__)
