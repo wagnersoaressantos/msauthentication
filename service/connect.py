@@ -18,3 +18,12 @@ class Connect:
 
     def get_instance(self):
         return self._connection
+    
+    def init_database(self, version = 'v1'):
+        if version == 'v1':
+            self.create_table()
+        if version == 'v2':
+            self.update_database()
+            
+    def update_database(self):
+        pass
