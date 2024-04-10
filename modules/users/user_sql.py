@@ -6,7 +6,7 @@ class SQLUsers:
     _COL_PASSWORD = 'password'
     _CAMPOS_OBRIGATORIOS =[_COL_NAME,_COL_PASSWORD]
 
-    _CREATE_TABLE = (f'CREATE TABLE IF NOT EXISTS{_TABLE_NAME} '
+    _CREATE_TABLE = (f'CREATE TABLE IF NOT EXISTS {_TABLE_NAME} '
                      f'({_COL_ID} SERIAL PRIMARY KEY,'
                      f'{_COL_NAME} VARCHAR(255),'
                      f'{_COL_PASSWORD} VARCHAR(255));')

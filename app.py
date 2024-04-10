@@ -7,7 +7,7 @@ app = Flask(__name__)
 app.register_blueprint(auth_blueprint)
 app.register_blueprint(users_controller)
 
-Connect().create_tables()
+Connect().create_table()
 Connect().init_database()
 
 if __name__ == "__main__":
