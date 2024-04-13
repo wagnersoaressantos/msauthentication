@@ -1,6 +1,8 @@
 import psycopg2
 class Connect:
     def __init__(self):
+        config = dict(dbname="PBD_2024",
+                      user="postgres", password="1532",
                       host="localhost", port="5432")
         self._connection = psycopg2.connect(**config)
 
