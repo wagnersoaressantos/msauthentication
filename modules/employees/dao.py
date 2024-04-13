@@ -1,24 +1,22 @@
-from modules.users.user_model import UserModel
-from modules.users.user_sql import SQLUsers
+from modules.employees.modelo import Employees
+from modules.employees.sql import SQLEmployees
 from service.connect import Connect
 
-
-class DAOUsers(SQLUsers):
-
+class DAOEmployees(SQLEmployees):
     def __init__(self):
         self.connection = Connect().get_instance()
 
     def create_table(self):
         return self._CREATE_TABLE
 
-    def salvar(self, users:UserModel):
-        if not isinstance(users, UserModel):
+    def salvar(self, employees:Employees):
+        if not isinstance(Employees, Employees):
             raise Exception("Erro ao salvar tipo invalido")
         query = self._INSERT_INTO
         cursor = self.connection.cursor()
-        cursor.execute(query,(users.username, users.password))
+        cursor.execute(query,(employees.username, employees.password))
         self.connection.commit()
-        return users
+        return employees
 
     def get_user_name(self, name):
         query = self._SELECT_USER_NAME

@@ -1,7 +1,7 @@
 from flask import Blueprint, request, jsonify
 import jwt
 import datetime
-from modules.users.controller import dao_users
+from modules.employees.controller import dao_employees
 
 auth_blueprint = Blueprint('auth', __name__)
 
@@ -10,10 +10,10 @@ SECRET_KEY = "secret"
 @auth_blueprint.route("/api/vi/authentication/token/", methods=["POST"])
 def get_token():
     data = request.get_json()
-    username = data.get("name")
+    username = data.get("username")
     password = data.get("password")
 
-    if dao_users.verify_credentials(username, password):
+    if dao_employees.verify_credentials(username, password):
         payload = {
             "sub": username,
             "exp": datetime.datetime.utcnow() + datetime.timedelta(hours=1) #Estudar depois a questão do tempo no JWT
