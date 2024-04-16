@@ -7,7 +7,7 @@ auth_blueprint = Blueprint('auth', __name__)
 
 SECRET_KEY = "secret"
 
-@auth_blueprint.route("/api/vi/authentication/token/", methods=["POST"])
+@auth_blueprint.route("/api/v1/authentication/token/", methods=["POST"])
 def get_token():
     data = request.get_json()
     username = data.get("username")
@@ -23,7 +23,7 @@ def get_token():
     else:
         return jsonify({"error": "Usuario invalidos ou nao existente."}), 400
 
-@auth_blueprint.route("/api/vi/authentication/validation/", methods=["POST"])
+@auth_blueprint.route("/api/v1/authentication/validation/", methods=["POST"])
 def validate_token():
     data = request.get_json()
     token = data.get("token")
